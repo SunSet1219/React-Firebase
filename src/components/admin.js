@@ -19,7 +19,7 @@ export default class Admin extends React.PureComponent {
           key: result.key,
           result: result.val().result,
           task: result.val().task,
-          unread:result.val().unread
+          unread: result.val().unread
         });
       })
       this.setState({
@@ -36,7 +36,6 @@ export default class Admin extends React.PureComponent {
       width: 500,
       margin: 'auto'
     }
-    
 
     return (
       <div style={style}>
@@ -48,7 +47,7 @@ export default class Admin extends React.PureComponent {
                 to={data.result !== '' ? 'adminview' : `adminview/${data.key}/${data.task}`}
                 style={{ marginLeft: 30 }}
               >
-                {data.unread === false ? 'Please take this' : (data.result===''?'Someone else took it':'task done')}
+                {data.unread === false ? 'Please take this' : (data.result === '' ? 'Someone else took it' : 'task done')}
               </Link>
             </li>
                     )) }
