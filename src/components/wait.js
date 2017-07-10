@@ -11,8 +11,8 @@ export default class App extends React.Component{
       status: 'Do',
       tmr: 0,
       intervalId: '',
-      minute:0
-    };   
+      minute: 0
+    };
   }
   componentWillMount() {
     clearInterval(this.state.intervalId)
@@ -34,7 +34,7 @@ export default class App extends React.Component{
     results[myref.key + ''] = {
       task: this.props.match.params.wait,
       result: '',
-      unread:false
+      unread: false
     };
     fire.database().ref('result').update(results);
     const starCountRef = fire.database().ref('result');
@@ -42,11 +42,11 @@ export default class App extends React.Component{
       const resultss = `${snapshot.child(myref.key).child('result').val()}`;
       this.setState({
         result: resultss,
-        value: ''       
+        value: ''
       });
     });
   }
-  
+
   render() {
     const style = {
       textAlign: 'center',
@@ -55,8 +55,8 @@ export default class App extends React.Component{
     const style1 = {
       marginTop: 20
     }
-    if(this.state.tmr == 60){
-      this.setState({ tmr:0, minute:this.state.minute+1 });
+    if (this.state.tmr === 60) {
+      this.setState({ tmr: 0, minute: this.state.minute + 1 });
     }
     return (
       <div style={{ textAlign: 'center' }}>
