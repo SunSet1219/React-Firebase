@@ -22,9 +22,11 @@ export default class App extends React.Component {
     return (
       <div style={{ textAlign: 'center' }}>
         <Menu />
-        <input
-          style={style}
+        <textarea
+          rows="8"
+          cols="50"
           type="text"
+          style={{ marginTop: 20 }}
           value={this.state.value}
           onChange={this.handleChange}
         />
