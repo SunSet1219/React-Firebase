@@ -33,7 +33,8 @@ export default class App extends React.Component{
     const results = {};
     results[myref.key + ''] = {
       task: this.props.match.params.wait,
-      result: ''
+      result: '',
+      unread:false
     };
     fire.database().ref('result').update(results);
     const starCountRef = fire.database().ref('result');
@@ -41,7 +42,7 @@ export default class App extends React.Component{
       const resultss = `${snapshot.child(myref.key).child('result').val()}`;
       this.setState({
         result: resultss,
-        value: ''
+        value: ''       
       });
     });
   }

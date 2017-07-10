@@ -11,6 +11,9 @@ export default class View extends React.Component {
     this.send = this.send.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
+  componentWillMount() {
+    fire.database().ref(`result/${this.props.match.params.key}`).update({unread:true});
+  }
   handleChange(event) {
     this.setState({ value: event.target.value });
   }
