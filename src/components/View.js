@@ -32,8 +32,11 @@ export default class View extends React.Component {
       <div style={{ textAlign: 'center' }}>
         <Menu />
         <h1>
-          {this.props.match.params.task}
+          {this.props.match.params.input}
         </h1>
+        <h2>
+          {this.props.match.params.task}
+        </h2>
         <textarea
           style={style}
           value={this.state.value}

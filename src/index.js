@@ -6,6 +6,7 @@ import Admin from './components/admin';
 import View from './components/View';
 import Wait from './components/wait';
 import registerServiceWorker from './registerServiceWorker';
+import Sign from './components/sign';
 
 class App extends React.Component {
 
@@ -19,11 +20,16 @@ class App extends React.Component {
               <Route
                 exact
                 path="/"
+                component={Sign}
+              />
+              <Route
+                exact
+                path="/userview"
                 component={Main}
               />
               <Route
                 exact
-                path="/userview/:wait"
+                path="/userview/:wait/:input"
                 component={Wait}
               />
               <Route
@@ -33,7 +39,7 @@ class App extends React.Component {
               />
               <Route
                 exact
-                path="/adminview/:key/:task"
+                path="/adminview/:key/:task/:input"
                 component={View}
               />
               <Route

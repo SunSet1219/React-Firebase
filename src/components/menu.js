@@ -1,8 +1,19 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
+import fire from '../fire';
 
-export default class Menu extends React.PureComponent {
-
+export default class Menu extends React.Component {
+  constructor() {
+    super();
+    this.logout = this.logout.bind(this);
+  }
+  logout() {
+    fire.auth().signOut().then(() => {
+      document.location.href = '/';
+    }).catch((error) => {
+      alert(error);
+    });
+  }
   render() {
     const style = {
       background: '#000',
@@ -19,8 +30,9 @@ export default class Menu extends React.PureComponent {
 
     return (
       <div style={style}>
-        <Link to="/" style={style1}>UserView</Link>
+        <Link to="/userview" style={style1}>UserView</Link>
         <Link to="/adminview" style={style1}>AdminView</Link>
+        <a onClick={this.logout} style={{ cursor: 'pointer' }}>Logout</a>
       </div>
     );
   }
